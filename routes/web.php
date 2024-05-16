@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/send', function () {
+    event(new \App\Events\SendMessage(['name' => 'Milan Ghevariya', 'contact' => '8154804998']));
+    dd('Event Run Successfully.');
+});
+
+Route::view('receive','receive');
